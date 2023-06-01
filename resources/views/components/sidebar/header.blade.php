@@ -4,7 +4,7 @@
         href="{{ route('dashboard') }}"
         class="inline-flex items-center gap-2"
     >
-        <img src="logo.png" alt="logo" class="w-10 h-auto">
+        <img src="/logo.png" alt="logo" class="w-10 h-auto">
     </a>
 
     <!-- Toggle button -->

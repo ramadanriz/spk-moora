@@ -108,7 +108,7 @@
                 </div>
 
                 <div>
-                    <x-button class="justify-center w-full gap-2">
+                    <x-button variant="warning" class="justify-center w-full gap-2">
                         <x-heroicon-o-user-plus class="w-6 h-6" aria-hidden="true" />
 
                         <span>{{ __('Register') }}</span>

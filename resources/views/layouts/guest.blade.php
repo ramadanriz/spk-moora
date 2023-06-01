@@ -32,8 +32,6 @@
     >
         <div class="flex flex-col min-h-screen text-gray-900 bg-gray-100 dark:bg-dark-eval-0 dark:text-gray-200">
             {{ $slot }}
-
-            <x-footer />
         </div>
 
         <div class="fixed top-10 right-10">

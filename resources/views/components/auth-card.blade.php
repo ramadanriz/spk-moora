@@ -2,7 +2,6 @@
     <div>
         <a href="/">
             <img src="logo.png" alt="logo" class="w-20 h-auto">
-            
         </a>
     </div>
 
