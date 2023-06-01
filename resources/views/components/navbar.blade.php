@@ -109,7 +109,7 @@
 >
 
     <a href="{{ route('dashboard') }}">
-        <img src="logo.png" alt="logo" aria-hidden="true" class="w-auto h-10">
+        <img src="/logo.png" alt="logo" aria-hidden="true" class="w-auto h-10">
     </a>
 
     <x-button
