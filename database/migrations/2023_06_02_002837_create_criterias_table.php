@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('participants', function (Blueprint $table) {
-            $table->string('registration_number', 7);
+        Schema::create('criterias', function (Blueprint $table) {
+            $table->id();
+            $table->text('name');
+            $table->string('type', 10);
+            $table->float('weight');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('participants', function (Blueprint $table) {
-            $table->dropColumn('registration_number');
-        });
+        Schema::dropIfExists('criterias');
     }
 };
