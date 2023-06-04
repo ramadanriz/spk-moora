@@ -4,7 +4,7 @@
             <h2 class="text-xl font-semibold leading-tight">
                 {{ __('Data kriteria') }}
             </h2>
-            <a href="/category/create" class="py-2 px-3 rounded-lg text-white bg-indigo-500 shadow-lg hover:bg-indigo-600">Input Data kriteria</a>
+            {{-- <a href="/category/create" class="py-2 px-3 rounded-lg text-white bg-indigo-500 shadow-lg hover:bg-indigo-600">Input Data kriteria</a> --}}
         </div>
     </x-slot>
 
@@ -27,13 +27,8 @@
               <td class="px-6 py-4 {{ $category->category_name == 'pbb' ? 'uppercase' : '' }}">{{ $category->category_name }}</td>
               <td class="px-6 py-4">{{ $category->type }}</td>
               <td class="px-6 py-4">{{ $category->weight }}</td>
-              <td class="px-6 py-4 flex justify-around">
+              <td class="px-6 py-4 flex justify-center">
                 <a href="/category/{{ $category->id }}/edit"><x-heroicon-o-pencil-square class="flex-shrink-0 w-6 h-6 hover:text-blue-500" aria-hidden="true" /></a>
-                <form action="/category/{{ $category->id }}" method="POST">
-                    @method('delete')
-                    @csrf
-                    <button onclick="return confirm('Anda ingin menghapus data ini?')" value="{{ $category->id }}"><x-heroicon-o-trash class="flex-shrink-0 w-6 h-6 hover:text-red-500" aria-hidden="true" /></button>
-                  </form>
               </td>
           </tr>
           @endforeach              

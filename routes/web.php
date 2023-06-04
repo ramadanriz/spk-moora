@@ -29,6 +29,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // user selection route
+    Route::get('/selection', [CalculateController::class, 'selection'])->name('selection');
+});
+
+Route::middleware('admin')->group(function() {
     // student route
     Route::resource('/student', StudentController::class);
 

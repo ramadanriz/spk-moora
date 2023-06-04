@@ -23,7 +23,7 @@
                         @csrf
                         <div class="space-y-2">
                             <x-form.label for="category_name" :value="__('Nama Kriteria')"/>
-                            <x-form.input id="category_name" name="category_name" type="text" class="block w-full" :value="old('category_name', $category->category_name)" required autofocus autocomplete="category_name"/>
+                            <x-form.input id="category_name" name="category_name" type="text" class="block w-full disabled:bg-gray-200" :value="old('category_name', $category->category_name)" required autofocus autocomplete="category_name" />
                             <x-form.error :messages="$errors->get('category_name')" />
                         </div>
 

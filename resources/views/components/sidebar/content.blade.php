@@ -9,6 +9,7 @@
             <x-icons.dashboard class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
+    @can('admin')
     <x-sidebar.link title="Siswa" href="/student" :isActive="request()->routeIs('student*')">
         <x-slot name="icon">
             <x-heroicon-o-user-group class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
@@ -20,6 +21,12 @@
         </x-slot>
     </x-sidebar.link>
     <x-sidebar.link title="Perhitungan" href="{{ route('calculate') }}" :isActive="request()->routeIs('calculate')">
+        <x-slot name="icon">
+            <x-heroicon-o-user-group class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+        </x-slot>
+    </x-sidebar.link>
+    @endcan
+    <x-sidebar.link title="Seleksi" href="{{ route('selection') }}" :isActive="request()->routeIs('selection')">
         <x-slot name="icon">
             <x-heroicon-o-user-group class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
