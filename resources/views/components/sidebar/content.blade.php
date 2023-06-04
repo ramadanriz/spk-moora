@@ -14,5 +14,15 @@
             <x-heroicon-o-user-group class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
+    <x-sidebar.link title="Kriteria" href="/category" :isActive="request()->routeIs('category*')">
+        <x-slot name="icon">
+            <x-heroicon-o-user-group class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+        </x-slot>
+    </x-sidebar.link>
+    <x-sidebar.link title="Perhitungan" href="{{ route('calculate') }}" :isActive="request()->routeIs('calculate')">
+        <x-slot name="icon">
+            <x-heroicon-o-user-group class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+        </x-slot>
+    </x-sidebar.link>
 
 </x-perfect-scrollbar>

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CalculateController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CriteriaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
@@ -26,8 +29,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // participant route
+    // student route
     Route::resource('/student', StudentController::class);
+
+    // category route
+    Route::resource('/category', CategoryController::class);
+
+    // calculate route
+    Route::get('/calculate', [CalculateController::class, 'index'])->name('calculate');
 });
 
 require __DIR__ . '/auth.php';
