@@ -1,8 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-    <h2 class="text-xl font-semibold leading-tight capitalize">
-        {{ __('hasil seleksi') }}
-    </h2>
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <h2 class="text-xl font-semibold leading-tight capitalize">
+                {{ __('hasil seleksi') }}
+            </h2>
+            <a href="/selection/print_pdf" target="_blank" class="py-2 px-3 rounded-lg text-white bg-indigo-500 shadow-lg hover:bg-indigo-600">Cetak Data</a>
+        </div>
     </x-slot>
 
     <div class="grid gap-4">
@@ -13,7 +16,7 @@
                         <tr>
                             <th scope="col" class="px-6 py-3">No</th>
                             <th scope="col" class="px-6 py-3">Nama Siswa</th>
-                            <th scope="col" class="px-6 py-3">Total</th>
+                            <th scope="col" class="px-6 py-3">Total Nilai</th>
                             <th scope="col" class="px-6 py-3">Status</th>
                         </tr>
                     </thead>

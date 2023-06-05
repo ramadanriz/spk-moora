@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use PDF;
 
 class CalculateController extends Controller
 {
@@ -118,5 +119,12 @@ class CalculateController extends Controller
         return view('selection.index', [
             'results' => $results
         ]);
+    }
+
+    public function print_pdf() {
+        $results = $this->result();
+        $pdf = PDF::loadView('selection.result-pdf', compact('results'));
+        $pdf->setPaper('A4', 'portrait');
+        return $pdf->stream();
     }
 }

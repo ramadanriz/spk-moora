@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 
     // user selection route
     Route::get('/selection', [CalculateController::class, 'selection'])->name('selection');
+    Route::get('/selection/print_pdf', [CalculateController::class, 'print_pdf'])->name('selection.print_pdf');
 });
 
 Route::middleware('admin')->group(function() {
