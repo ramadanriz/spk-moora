@@ -9,17 +9,10 @@
             </div>
             @if($students->count())
             @foreach ($students as $student)
-            <div class="w-28 flex justify-around">
-                <a href="/student/{{ $student->id }}/edit" class="p-2 rounded-lg text-white bg-yellow-500 shadow-lg hover:bg-yellow-600"><x-heroicon-o-pencil-square class="flex-shrink-0 w-6 h-6" aria-hidden="true" /></a>
-                <form action="/student/{{ $student->id }}" method="POST">
-                    @method('delete')
-                    @csrf
-                    <button onclick="return confirm('Anda ingin menghapus data ini?')" value="{{ $student->id }}" class="py-2 px-3 rounded-lg text-white bg-red-500 shadow-lg hover:bg-red-600"><x-heroicon-o-trash class="flex-shrink-0 w-6 h-6" aria-hidden="true" /></button>
-                  </form>
-            </div>
+            <a href="/member-registration/{{ $student->id }}/edit"  class="py-2 px-3 rounded-lg text-white bg-yellow-500 shadow-lg hover:bg-yellow-600">Edit Data</a>
             @endforeach
             @else
-            <a href="/student/create" class="py-2 px-3 rounded-lg text-white bg-indigo-500 shadow-lg hover:bg-indigo-600">Daftar Sekarang</a>
+            <a href="/member-registration/create" class="py-2 px-3 rounded-lg text-white bg-indigo-500 shadow-lg hover:bg-indigo-600">Daftar Sekarang</a>
             @endif
         </div>
     </x-slot>

@@ -3,9 +3,11 @@
 use App\Http\Controllers\CalculateController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CriteriaController;
+use App\Http\Controllers\MemberRegistrationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,15 +30,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
+Route::middleware('user')->group(function() {
     // user selection route
     Route::get('/selection', [CalculateController::class, 'selection'])->name('selection');
     Route::get('/selection/print_pdf', [CalculateController::class, 'print_pdf'])->name('selection.print_pdf');
+
+    // student route
+    Route::resource('/student', StudentController::class);
 });
 
 Route::middleware('admin')->group(function() {
-    // student route
-    Route::resource('/student', StudentController::class);
+    // student list route
+    Route::resource('/student-list', StudentListController::class);
 
     // category route
     Route::resource('/category', CategoryController::class);

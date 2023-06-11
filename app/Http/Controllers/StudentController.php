@@ -12,10 +12,18 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::orderBy('student_id_number')->paginate(5);
+        $students = $this->getData();
         return view('student.index', [
             "students" => $students
         ]);
+    }
+
+    public function getData() {
+        $user = auth()->user();
+        $userId = $user->id;
+        $students = Student::where('user_id', $userId)->get();
+
+        return $students;
     }
 
     /**
@@ -31,7 +39,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validateData = $request->validate([
             'student_id_number' => ['required', 'unique:'.Student::class],
             'name' => ['required', 'max:60'],
             'class' => ['required', 'max:60'],
@@ -43,7 +51,9 @@ class StudentController extends Controller
             'physical' => ['required']
         ]);
 
-        Student::create($request->all());
+        $validateData['user_id'] = auth()->user()->id;
+
+        Student::create($validateData);
         return redirect('/student');
     }
 
@@ -93,7 +103,14 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        $student->delete();
+        Student::destroy($student->id);
         return redirect('/student');
+    }
+
+    public function student_list() {
+        $students = Student::all();
+        return view('student.student_list', [
+            'students' => $students
+        ]);
     }
 }

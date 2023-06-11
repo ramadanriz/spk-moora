@@ -57,7 +57,7 @@
                 <button
                     class="flex items-center p-2 text-sm font-medium text-gray-500 rounded-md transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none focus:ring focus:ring-yellow-500 focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark-eval-1 dark:text-gray-400 dark:hover:text-gray-200"
                 >
-                    <div>{{ Auth::user()->name }}</div>
+                    <div class="capitalize">{{ Auth::user()->name }}</div>
 
                     <div class="ml-1">
                         <svg

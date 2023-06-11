@@ -24,7 +24,7 @@ class CalculateController extends Controller
     }
 
     public function getStudentsData() {
-        $students = Student::orderBy('student_id_number')->get();
+        $students = Student::orderBy('name')->get();
         return $students;
     }
 

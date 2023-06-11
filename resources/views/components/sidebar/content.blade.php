@@ -9,8 +9,20 @@
             <x-icons.dashboard class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
+    @can('user')
+    <x-sidebar.link title="Pendaftaran" href="/student" :isActive="request()->routeIs('student*')">
+        <x-slot name="icon">
+            <x-heroicon-o-user-plus class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+        </x-slot>
+    </x-sidebar.link>
+    <x-sidebar.link title="Seleksi" href="{{ route('selection') }}" :isActive="request()->routeIs('selection')">
+        <x-slot name="icon">
+            <x-heroicon-o-user-group class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+        </x-slot>
+    </x-sidebar.link>
+    @endcan
     @can('admin')
-    <x-sidebar.link title="Siswa" href="/student" :isActive="request()->routeIs('student*')">
+    <x-sidebar.link title="Pendaftar" href="/student-list" :isActive="request()->routeIs('student-list*')">
         <x-slot name="icon">
             <x-heroicon-o-user-group class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
@@ -26,10 +38,5 @@
         </x-slot>
     </x-sidebar.link>
     @endcan
-    <x-sidebar.link title="Seleksi" href="{{ route('selection') }}" :isActive="request()->routeIs('selection')">
-        <x-slot name="icon">
-            <x-heroicon-o-user-group class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
-        </x-slot>
-    </x-sidebar.link>
 
 </x-perfect-scrollbar>
