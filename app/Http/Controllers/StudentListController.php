@@ -12,7 +12,7 @@ class StudentListController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+        $students = Student::filter()->get();
         return view('student-list.index', [
             'students' => $students
         ]);

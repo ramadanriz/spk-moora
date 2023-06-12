@@ -12,6 +12,12 @@ class Student extends Model
 
     protected $guarded = ['id'];
 
+    public function scopeFilter($query) {
+        if(request('search')) {
+            return $query->where('name', 'like', '%'. request('search') .'%')->orWhere('student_id_number', 'like', '%'. request('search') .'%');
+        }
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
