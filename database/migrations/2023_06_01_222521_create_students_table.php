@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->integer('student_id_number');
+            $table->integer('student_id_number')->primary();
             $table->string('name', 60);
             $table->string('class', 60);
             $table->string('major', 60);
@@ -22,6 +21,7 @@ return new class extends Migration
             $table->integer('interview');
             $table->integer('pbb');
             $table->integer('physical');
+            $table->integer('absent');
             $table->timestamps();
         });
     }

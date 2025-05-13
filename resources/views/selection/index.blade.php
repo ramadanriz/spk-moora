@@ -4,10 +4,13 @@
             <h2 class="text-xl font-semibold leading-tight capitalize">
                 {{ __('hasil seleksi') }}
             </h2>
+            @if($results)
             <a href="/selection/print_pdf" target="_blank" class="py-2 px-3 rounded-lg text-white bg-indigo-500 shadow-lg hover:bg-indigo-600">Cetak Data</a>
+            @endif
         </div>
     </x-slot>
 
+    @if($results)
     <div class="grid gap-4">
         <div class="container grid gap-7">
             <div class="overflow-x-auto shadow-md sm:rounded-lg">
@@ -34,4 +37,8 @@
             </div>
         </div>
     </div>
+
+    @else
+    <p class="text-center text-lg">Anda Belum Mendaftar</p>
+    @endif
 </x-app-layout>

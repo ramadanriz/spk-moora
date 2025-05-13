@@ -33,7 +33,7 @@
                 <td class="px-6 py-4">{{ $loop->iteration }}</td>
                 <td class="px-6 py-4">{{ $student->student_id_number }}</td>
                 <td class="px-6 py-4">{{ $student->name }}</td>
-                <td class="px-6 py-4"><a href="/student-list/{{ $student->id }}" class="hover:underline">Detail</a></td>
+                <td class="px-6 py-4"><a href="/student-list/{{ $student->student_id_number }}" class="hover:underline">Detail</a></td>
             </tr>
           @endforeach              
           </tbody>

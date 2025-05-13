@@ -11,6 +11,9 @@ class Student extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $primaryKey = 'student_id_number';
+    public $incrementing = false; // karena bukan auto-increment
+    protected $keyType = 'int';
 
     public function scopeFilter($query) {
         if(request('search')) {

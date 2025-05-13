@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="space-y-2">
-                            <x-form.label for="major" :value="__('Kelas')"/>
+                            <x-form.label for="major" :value="__('Jurusan')"/>
                             <select name="major" id="major" class="block w-full py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1 dark:text-gray-300 dark:focus:ring-offset-dark-eval-1">
                                 <option value="Teknik Mesin">Teknik Mesin</option>
                                 <option value="Teknik Komputer Jaringan dan Telekomunikasi">Teknik Komputer Jaringan dan Telekomunikasi</option>
@@ -81,6 +81,12 @@
                             <x-form.label for="physical" :value="__('Nilai Kesehatan')"/>
                             <x-form.input id="physical" name="physical" type="number" class="block w-full" :value="old('physical')" required autocomplete="physical"/>            
                             <x-form.error :messages="$errors->get('physical')" />
+                        </div>
+
+                        <div class="space-y-2">
+                            <x-form.label for="absent" :value="__('Nilai Absensi Kehadiran')"/>
+                            <x-form.input id="absent" name="absent" type="number" class="block w-full" :value="old('absent')" required autocomplete="absent"/>            
+                            <x-form.error :messages="$errors->get('absent')" />
                         </div>
     
                         <div class="flex items-center gap-4">

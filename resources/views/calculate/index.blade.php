@@ -20,6 +20,7 @@
                             <th scope="col" class="px-6 py-3">Wawancara (C2)</th>
                             <th scope="col" class="px-6 py-3">PBB (C3)</th>
                             <th scope="col" class="px-6 py-3">Kesehatan (C4)</th>
+                            <th scope="col" class="px-6 py-3">Absensi Kehadiran (C5)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,6 +32,7 @@
                           <td class="px-6 py-4">{{ $student->interview }}</td>
                           <td class="px-6 py-4">{{ $student->pbb }}</td>
                           <td class="px-6 py-4">{{ $student->physical }}</td>
+                          <td class="px-6 py-4">{{ $student->absent }}</td>
                         </tr>
                         @endforeach              
                     </tbody>
@@ -54,6 +56,7 @@
                             <th scope="col" class="px-6 py-3">Wawancara (C2)</th>
                             <th scope="col" class="px-6 py-3">PBB (C3)</th>
                             <th scope="col" class="px-6 py-3">Kesehatan (C4)</th>
+                            <th scope="col" class="px-6 py-3">Absensi Kehadiran (C5)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,6 +68,7 @@
                           <td class="px-6 py-4">{{ $normalize['c2'] }}</td>
                           <td class="px-6 py-4">{{ $normalize['c3'] }}</td>
                           <td class="px-6 py-4">{{ $normalize['c4'] }}</td>
+                          <td class="px-6 py-4">{{ $normalize['c5'] }}</td>
                         </tr>
                         @endforeach              
                     </tbody>
@@ -88,6 +92,7 @@
                             <th scope="col" class="px-6 py-3">Wawancara (C2)</th>
                             <th scope="col" class="px-6 py-3">PBB (C3)</th>
                             <th scope="col" class="px-6 py-3">Kesehatan (C4)</th>
+                            <th scope="col" class="px-6 py-3">Absensi Kehadiran (C5)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -99,6 +104,7 @@
                           <td class="px-6 py-4">{{ $weight['interview'] }}</td>
                           <td class="px-6 py-4">{{ $weight['pbb'] }}</td>
                           <td class="px-6 py-4">{{ $weight['physical'] }}</td>
+                          <td class="px-6 py-4">{{ $weight['absent'] }}</td>
                         </tr>
                         @endforeach              
                     </tbody>

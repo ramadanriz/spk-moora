@@ -48,7 +48,8 @@ class StudentController extends Controller
             'knowledge' => ['required'],
             'interview' => ['required'],
             'pbb' => ['required'],
-            'physical' => ['required']
+            'physical' => ['required'],
+            'absent' => ['required']
         ]);
 
         $validateData['user_id'] = auth()->user()->id;
@@ -91,7 +92,8 @@ class StudentController extends Controller
             'knowledge' => ['required'],
             'interview' => ['required'],
             'pbb' => ['required'],
-            'physical' => ['required']
+            'physical' => ['required'],
+            'absent' => ['required']
         ]);
 
         $student->update($request->all());
@@ -103,7 +105,7 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        Student::destroy($student->id);
+        Student::destroy($student->student_id_number);
         return redirect('/student');
     }
 

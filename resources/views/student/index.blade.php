@@ -10,11 +10,11 @@
             @if($students->count())
             @foreach ($students as $student)
             <div class="w-28 flex justify-around">
-                <a href="/student/{{ $student->id }}/edit" class="p-2 rounded-lg text-white bg-yellow-500 shadow-lg hover:bg-yellow-600"><x-heroicon-o-pencil-square class="flex-shrink-0 w-6 h-6" aria-hidden="true" /></a>
-                <form action="/student/{{ $student->id }}" method="POST">
+                <a href="/student/{{ $student->student_id_number }}/edit" class="p-2 rounded-lg text-white bg-yellow-500 shadow-lg hover:bg-yellow-600"><x-heroicon-o-pencil-square class="flex-shrink-0 w-6 h-6" aria-hidden="true" /></a>
+                <form action="/student/{{ $student->student_id_number }}" method="POST">
                     @method('delete')
                     @csrf
-                    <button onclick="return confirm('Anda ingin menghapus data ini?')" value="{{ $student->id }}" class="py-2 px-3 rounded-lg text-white bg-red-500 shadow-lg hover:bg-red-600"><x-heroicon-o-trash class="flex-shrink-0 w-6 h-6" aria-hidden="true" /></button>
+                    <button onclick="return confirm('Anda ingin menghapus data ini?')" value="{{ $student->student_id_number }}" class="py-2 px-3 rounded-lg text-white bg-red-500 shadow-lg hover:bg-red-600"><x-heroicon-o-trash class="flex-shrink-0 w-6 h-6" aria-hidden="true" /></button>
                   </form>
             </div>
             @endforeach
@@ -65,6 +65,10 @@
                 <div class="grid grid-cols-2">
                     <div class="px-4 py-2 font-semibold">Nilai Kesehatan</div>
                     <div class="px-4 py-2">{{ $student->physical }}</div>
+                </div>
+                <div class="grid grid-cols-2">
+                    <div class="px-4 py-2 font-semibold">Nilai Absensi Kehadiran</div>
+                    <div class="px-4 py-2">{{ $student->absent }}</div>
                 </div>
                 @endforeach
             </div>

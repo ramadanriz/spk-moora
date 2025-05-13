@@ -18,7 +18,7 @@
                             {{ __("edit biodata siswa.") }}
                         </p>
                     </header>
-                    <form method="POST" action="/student/{{ $student->id }}" class="mt-6 space-y-6">
+                    <form method="POST" action="/student/{{ $student->student_id_number }}" class="mt-6 space-y-6">
                         @method('put')
                         @csrf
                         <div class="space-y-2">
@@ -82,6 +82,12 @@
                             <x-form.label for="physical" :value="__('Nilai Kesehatan')"/>
                             <x-form.input id="physical" name="physical" type="number" class="block w-full" :value="old('physical', $student->physical)" required autocomplete="physical"/>            
                             <x-form.error :messages="$errors->get('physical')" />
+                        </div>
+
+                        <div class="space-y-2">
+                            <x-form.label for="absent" :value="__('Nilai Absensi Kehadiran')"/>
+                            <x-form.input id="absent" name="absent" type="number" class="block w-full" :value="old('absent', $student->absent)" required autocomplete="absent"/>            
+                            <x-form.error :messages="$errors->get('absent')" />
                         </div>
     
                         <div class="flex items-center gap-4">
