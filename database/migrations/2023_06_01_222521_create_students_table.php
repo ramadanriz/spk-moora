@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('class', 60);
             $table->string('major', 60);
             $table->enum('gender', ['laki-laki', 'perempuan']);
-            $table->integer('knowledge');
-            $table->integer('interview');
-            $table->integer('pbb');
-            $table->integer('physical');
-            $table->integer('absent');
+            $table->integer('knowledge')->nullable();
+            $table->integer('interview')->nullable();
+            $table->integer('pbb')->nullable();
+            $table->integer('physical')->nullable();
+            $table->integer('absent')->nullable();
             $table->timestamps();
         });
     }

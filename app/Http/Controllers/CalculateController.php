@@ -49,7 +49,13 @@ class CalculateController extends Controller
             $pembagi4 += pow($data['physical'], 2);
             $akar4 = sqrt($pembagi4);
 
-            $pembagi5 += pow($data['absent'], 2);
+            $absentScore = match (true) {
+                $data['absent'] == 0 => 0,
+                $data['absent'] >= 1 && $data['absent'] <= 2 => 50,
+                $data['absent'] >= 3 && $data['absent'] <= 4 => 75,
+                $data['absent'] >= 5 => 100,
+            };
+            $pembagi5 += pow($absentScore, 2);
             $akar5 = sqrt($pembagi5);
         }
 
@@ -60,7 +66,14 @@ class CalculateController extends Controller
             $c2 = round($data->interview / $akar2, 4);
             $c3 = round($data->pbb / $akar3, 4);
             $c4 = round($data->physical / $akar4, 4);
-            $c5 = round($data->absent / $akar5, 4);
+
+            $absentScore = match (true) {
+                $data['absent'] == 0 => 0,
+                $data['absent'] >= 1 && $data['absent'] <= 2 => 50,
+                $data['absent'] >= 3 && $data['absent'] <= 4 => 75,
+                $data['absent'] >= 5 => 100,
+            };
+            $c5 = round($absentScore / $akar5, 4);
 
             $normalize[] = array(
                 'name' => $data->name,
@@ -110,18 +123,29 @@ class CalculateController extends Controller
         $totalWeighted = $this->weighted();
         $results = [];
 
-        foreach($totalWeighted as $totalWeight) {
+        foreach ($totalWeighted as $totalWeight) {
             $name = $totalWeight['name'];
             $total = $totalWeight['knowledge'] + $totalWeight['interview'] + $totalWeight['pbb'] + $totalWeight['physical'] - $totalWeight['absent'];
 
-            $results[] = array(
+            $results[] = [
                 'name' => $name,
                 'total' => $total
-            );
+            ];
+        }
+
+        // Urutkan berdasarkan total nilai dari terbesar ke terkecil
+        usort($results, function ($a, $b) {
+            return $b['total'] <=> $a['total'];
+        });
+
+        // Tambahkan ranking berdasarkan urutan
+        foreach ($results as $index => &$result) {
+            $result['ranking'] = $index + 1;
         }
 
         return $results;
     }
+
 
     public function selection() {
         $results = $this->result();

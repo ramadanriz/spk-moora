@@ -47,17 +47,28 @@ class StudentListController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Student $student)
+    public function edit(Student $student_list)
     {
-        //
+        return view('student-list.edit', [
+            'student_list' => $student_list
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Student $student_list)
     {
-        //
+        $request->validate([
+            'knowledge' => ['required'],
+            'interview' => ['required'],
+            'pbb' => ['required'],
+            'physical' => ['required'],
+            'absent' => ['required']
+        ]);
+
+        $student_list->update($request->all());
+        return redirect('/student-list');
     }
 
     /**

@@ -45,6 +45,25 @@
                     <div class="px-4 py-2 font-semibold">Nilai Kesehatan</div>
                     <div class="px-4 py-2">{{ $student_list->physical }}</div>
                 </div>
+                <div class="grid grid-cols-2">
+                    <div class="px-4 py-2 font-semibold">Nilai Absensi</div>
+                    @php
+                        $absentValue = $student_list->absent;
+                        if ($absentValue == 0) {
+                            $absentDisplay = 0;
+                        } elseif ($absentValue >= 1 && $absentValue <= 2) {
+                            $absentDisplay = 50;
+                        } elseif ($absentValue >= 3 && $absentValue <= 4) {
+                            $absentDisplay = 75;
+                        } elseif ($absentValue >= 5) {
+                            $absentDisplay = 100;
+                        } else {
+                            $absentDisplay = '-';
+                        }
+                    @endphp
+                    <div class="px-4 py-2">{{ $absentDisplay }}</div>
+
+                </div>
             </div>
         </div>
     </div>

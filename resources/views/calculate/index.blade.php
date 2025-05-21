@@ -32,7 +32,21 @@
                           <td class="px-6 py-4">{{ $student->interview }}</td>
                           <td class="px-6 py-4">{{ $student->pbb }}</td>
                           <td class="px-6 py-4">{{ $student->physical }}</td>
-                          <td class="px-6 py-4">{{ $student->absent }}</td>
+                            @php
+                                $absentValue = $student->absent;
+                                if ($absentValue == 0) {
+                                    $absentDisplay = 0;
+                                } elseif ($absentValue >= 1 && $absentValue <= 2) {
+                                    $absentDisplay = 50;
+                                } elseif ($absentValue >= 3 && $absentValue <= 4) {
+                                    $absentDisplay = 75;
+                                } elseif ($absentValue >= 5) {
+                                    $absentDisplay = 100;
+                                } else {
+                                    $absentDisplay = '-';
+                                }
+                            @endphp
+                            <td class="px-6 py-4">{{ $absentDisplay}}</td>
                         </tr>
                         @endforeach              
                     </tbody>
@@ -113,28 +127,29 @@
         </div>
 
         <div class="container grid gap-7">
-            <div class="grid gap-2">
+            <div class="flex justify-between">
                 <h2 class="text-xl font-semibold leading-tight capitalize">
                   {{ __('hasil') }}
                 </h2>
+                @if($results)
+                <a href="/selection/print_pdf" target="_blank" class="py-2 px-3 rounded-lg text-white bg-indigo-500 shadow-lg hover:bg-indigo-600">Cetak Data</a>
+                @endif
             </div>
             <div class="overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-center">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
                         <tr>
-                            <th scope="col" class="px-6 py-3">No</th>
                             <th scope="col" class="px-6 py-3">Nama Siswa</th>
                             <th scope="col" class="px-6 py-3">Total</th>
-                            <th scope="col" class="px-6 py-3">Status</th>
+                            <th scope="col" class="px-6 py-3">Ranking</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($results as $result)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 capitalize">
-                          <td class="px-6 py-4">{{ $loop->iteration }}</td>
                           <td class="px-6 py-4">{{ $result['name'] }}</td>
                           <td class="px-6 py-4">{{ $result['total'] }}</td>
-                          <td class="px-6 py-4">{{ $result['total'] >= 0.5 ? 'Lolos' : 'Gagal' }}</td>
+                          <td class="px-6 py-4">{{ $result['ranking']}}</td>
                         </tr>
                         @endforeach              
                     </tbody>

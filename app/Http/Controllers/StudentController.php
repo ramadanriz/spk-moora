@@ -45,11 +45,6 @@ class StudentController extends Controller
             'class' => ['required', 'max:60'],
             'major' => ['required', 'max:60'],
             'gender' => ['required'],
-            'knowledge' => ['required'],
-            'interview' => ['required'],
-            'pbb' => ['required'],
-            'physical' => ['required'],
-            'absent' => ['required']
         ]);
 
         $validateData['user_id'] = auth()->user()->id;
@@ -89,11 +84,6 @@ class StudentController extends Controller
             'class' => ['required', 'max:60'],
             'major' => ['required', 'max:60'],
             'gender' => ['required'],
-            'knowledge' => ['required'],
-            'interview' => ['required'],
-            'pbb' => ['required'],
-            'physical' => ['required'],
-            'absent' => ['required']
         ]);
 
         $student->update($request->all());

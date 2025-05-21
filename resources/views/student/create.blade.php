@@ -58,37 +58,7 @@
                                 <option value="Teknik Ketenagalistrikan">Teknik Ketenagalistrikan</option>
                             </select>
                         </div>
-    
-                        <div class="space-y-2">
-                            <x-form.label for="knowledge" :value="__('Nilai Pengetahuan Umum')"/>
-                            <x-form.input id="knowledge" name="knowledge" type="number" class="block w-full" :value="old('knowledge')" required autocomplete="knowledge"/>            
-                            <x-form.error :messages="$errors->get('knowledge')" />
-                        </div>
-
-                        <div class="space-y-2">
-                            <x-form.label for="interview" :value="__('Nilai Wawancara')"/>
-                            <x-form.input id="interview" name="interview" type="number" class="block w-full" :value="old('interview')" required autocomplete="interview"/>            
-                            <x-form.error :messages="$errors->get('interview')" />
-                        </div>
-
-                        <div class="space-y-2">
-                            <x-form.label for="pbb" :value="__('Nilai PBB')"/>
-                            <x-form.input id="pbb" name="pbb" type="number" class="block w-full" :value="old('pbb')" required autocomplete="pbb"/>            
-                            <x-form.error :messages="$errors->get('pbb')" />
-                        </div>
-
-                        <div class="space-y-2">
-                            <x-form.label for="physical" :value="__('Nilai Kesehatan')"/>
-                            <x-form.input id="physical" name="physical" type="number" class="block w-full" :value="old('physical')" required autocomplete="physical"/>            
-                            <x-form.error :messages="$errors->get('physical')" />
-                        </div>
-
-                        <div class="space-y-2">
-                            <x-form.label for="absent" :value="__('Nilai Absensi Kehadiran')"/>
-                            <x-form.input id="absent" name="absent" type="number" class="block w-full" :value="old('absent')" required autocomplete="absent"/>            
-                            <x-form.error :messages="$errors->get('absent')" />
-                        </div>
-    
+                            
                         <div class="flex items-center gap-4">
                             <x-button type="submit">{{ __('Save') }}</x-button>
                         </div>
