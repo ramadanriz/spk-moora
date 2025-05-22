@@ -3,7 +3,22 @@
         
     </x-slot>
 
-    <div class="grid gap-4">
+    @php
+        $incomplete = collect($students)->contains(function ($student) {
+            return is_null($student->knowledge) ||
+                is_null($student->interview) ||
+                is_null($student->pbb) ||
+                is_null($student->physical) ||
+                is_null($student->absent);
+        });
+    @endphp
+
+    @if ($incomplete)
+    <div class="text-center text-xl font-semibold mt-10">
+        Nilai belum dimasukkan
+    </div>
+    @else
+        <div class="grid gap-4">
         <div class="container grid gap-7">
             <div class="grid gap-2">
                 <h2 class="text-xl font-semibold leading-tight capitalize">
@@ -157,4 +172,7 @@
             </div>
         </div>
     </div>
+    @endif
+
+    
 </x-app-layout>
